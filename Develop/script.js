@@ -32,7 +32,7 @@ $(function() {
     var done = index - fut
     timeLine[done].addClass('future'); 
   }
-  var text = localStorage.getItem("text");
+//   var text = localStorage.getItem("text");
 });
 
 // var saveButton = $('#saveBtn')
