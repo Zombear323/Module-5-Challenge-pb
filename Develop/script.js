@@ -35,26 +35,26 @@ $(function() {
   var text = localStorage.getItem("text");
 });
 
-var saveButton = $('#saveBtn')
-var desc = $('#description')
+// var saveButton = $('#saveBtn')
+// var desc = $('#description')
 
 // save function needs work
 
-function saveText() {
-  var svdnote = desc.value
-  localStorage.setItem("svdnote", JSON.stringify(svdnote));
-}
-function makeText() {
-  var noteCall = JSON.parse(localStorage.getItem("svdnote"));
-  desc.innerHTML = noteCall;
-}
+// function saveText() {
+//   var svdnote = desc.value
+//   localStorage.setItem("svdnote", JSON.stringify(svdnote));
+// }
+// function makeText() {
+//   var noteCall = JSON.parse(localStorage.getItem("svdnote"));
+//   desc.innerHTML = noteCall;
+// }
 
-saveButton.on("click", function(event) {
-  event.preventDefault();
-  saveText();
-  makeText();
-  console.log("test");
-  });
+// saveButton.on("click", function(event) {
+//   event.preventDefault();
+//   saveText();
+//   makeText();
+//   console.log("test");
+//   });
 
 
 
