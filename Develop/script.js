@@ -19,6 +19,8 @@ var date = dayjs().format('MMMM D, YYYY');
 console.log(time);
 console.log(date);
 
+$('#currentDay').text(date);
+
 $(function() {
   timeLine[time-9].addClass('present');  
   for (let index = 9; index < time; index++) {
@@ -30,8 +32,29 @@ $(function() {
     var done = index - fut
     timeLine[done].addClass('future'); 
   }
+  var text = localStorage.getItem("text");
 });
 
+var saveButton = $('#saveBtn')
+var desc = $('#description')
+
+// save function needs work
+
+function saveText() {
+  var svdnote = desc.value
+  localStorage.setItem("svdnote", JSON.stringify(svdnote));
+}
+function makeText() {
+  var noteCall = JSON.parse(localStorage.getItem("svdnote"));
+  desc.innerHTML = noteCall;
+}
+
+saveButton.on("click", function(event) {
+  event.preventDefault();
+  saveText();
+  makeText();
+  console.log("test");
+  });
 
 
 
@@ -46,5 +69,4 @@ $(function() {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+  
