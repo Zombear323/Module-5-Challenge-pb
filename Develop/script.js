@@ -13,17 +13,26 @@ var timeSlot9 = $('#hour-5')
 
 var timeLine = [timeSlot1, timeSlot2, timeSlot3, timeSlot4, timeSlot5, timeSlot6, timeSlot7, timeSlot8, timeSlot9]
 
-
 var time = dayjs().format('H');
+var timecon = dayjs().format('H');
 var date = dayjs().format('MMMM D, YYYY');
 console.log(time);
 console.log(date);
 
-for (let index = 9; index < time; index++) {
-  var done = index - 9
-  console.log(done)
-  // timeLine[done].addClass('past');  
-};
+$(function() {
+  timeLine[time-9].addClass('present');  
+  for (let index = 9; index < time; index++) {
+    var done = index - 9
+    timeLine[done].addClass('past');
+  }
+  for (let index = 17; index > time; index++) {
+    var fut = 25 - time
+    var done = index - fut
+    timeLine[done].addClass('future'); 
+  }
+});
+
+
 
 
 
@@ -33,12 +42,6 @@ for (let index = 9; index < time; index++) {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
